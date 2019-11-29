@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Name</label>
+          <input class="form-control" type="text" formControlName="name" [ngClass]="{ 'is-invalid': submitted && myForm.name }">
+          <!-- error -->
+          <div *ngIf="submitted && myForm.name.errors" class="invalid-feedback">
+                   <div *ngIf="myForm.name.errors.required">First Name is required</div>
+               </div>
+
+          <div class="valid-feedback" *ngIf="!myForm.name.errors.required">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail3">Email</label>
+          <input class="form-control" type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && myForm.email }">
+          <!-- error -->
+          <div *ngIf="submitted && myForm.email.errors" class="invalid-feedback">
+                   <div *ngIf="submitted && myForm.email.errors.required">
+                     Enter your email.
+                   </div>
+                   <div *ngIf="submitted && myForm.email.errors.pattern">
+                     Enter valid email.
+                   </div>
+               </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword3">Designation</label>
+          <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+            formControlName="designation" [ngClass]="{ 'is-invalid': submitted && myForm.designation }">
+            <option value="">Choose...</option>
+            <option *ngFor="let employeeProfile of EmployeeProfile" value="{{employeeProfile}}">{{employeeProfile}}
+            </option>
+          </select>
+          <!-- error -->
+          <div *ngIf="submitted && myForm.designation.errors" class="invalid-feedback">
+                   <div *ngIf="submitted && myForm.designation.errors.required">
+                     Choose designation.
+                   </div>
+               </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputVerify3">Mobile No</label>
+          <input class="form-control" type="text" formControlName="phoneNumber" [ngClass]="{ 'is-invalid': submitted && myForm.phoneNumber }" >
+          <!-- error -->
+          <div *ngIf="submitted && myForm.phoneNumber.errors" class="invalid-feedback">
+                   <div *ngIf="submitted && myForm.phoneNumber.errors.required">
+                     Enter your phone number.
+                   </div>
+                   <div *ngIf="submitted && myForm.phoneNumber.errors.pattern">
+                     Enter Numbers Only
+                   </div>
+               </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">Register</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>
