@@ -1,10 +1,13 @@
 # CrudEx
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+and the backend of this crud is [Crud-server](https://github.com/DarjiPriyank/Crud-server).
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Proxy config
+In this the proxy.conf.json is used to provide serverlink  `ng server --proxy-config proxy.conf.json` command. Navigate to `http://localhost:4200/`.
 
 ## Code scaffolding
 
